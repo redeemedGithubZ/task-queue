@@ -2,7 +2,6 @@ package app;
 
 import model.Task;
 import service.TaskQueueService;
-
 import java.util.Scanner;
 
 public class QueueApp {
