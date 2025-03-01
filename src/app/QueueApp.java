@@ -19,30 +19,32 @@ public class QueueApp {
              input = scanner.next().charAt(0);
 
              if (input == '1'){
-                 System.out.println("Enter an ID");
+                 System.out.println("Enter an ID: ");
                  int id = scanner.nextInt();
-                 System.out.println("Enter a description");
-                 String description = scanner.next();
-                 taskQueueService.enqueue( new Task(id, description));
+                 System.out.println("Enter a description:");
+                 scanner.nextLine();
+                 String description = scanner.nextLine();
+                 taskQueueService.enqueue(new Task(id, description));
              }
              else if (input == '2'){
-                 taskQueueService.listTasks();
+                 System.out.println(taskQueueService.listTasks());
              }
              else if (input == '3'){
                 Task task = taskQueueService.dequeue();
                 if (task == null){
-                    System.out.println();
+                    System.out.println("No task available");
+                }
+                else{
+                    System.out.println("Next task: " + task);
                 }
 
              }
-             else if (input == '4'){
-
-             }
-             else{
-
+             else if (input != '4'){
+                System.out.println("Invalid input. Enter 1, 2, 3, or 4");
              }
 
 
-         }while (input != 4);
+
+         }while (input != '4');
      }
 }
